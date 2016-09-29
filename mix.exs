@@ -19,7 +19,7 @@ defmodule Metascope.Mixfile do
   def application do
     [mod: {Metascope, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :tentacat]]
   end
 
   # Specifies which paths to compile per environment.
