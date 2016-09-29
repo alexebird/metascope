@@ -5,8 +5,6 @@ defmodule Metascope.Repo.Migrations.CreatePullRequest do
     create table(:pull_requests) do
       add :title, :string
       add :owner, :string
-      add :created_at, :datetime
-      add :updated_at, :datetime
       add :payload, :text
 
       timestamps()
