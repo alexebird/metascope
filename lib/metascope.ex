@@ -14,6 +14,7 @@ defmodule Metascope do
       supervisor(Metascope.Endpoint, []),
       # Start your own worker by calling: Metascope.Worker.start_link(arg1, arg2, arg3)
       # worker(Metascope.Worker, [arg1, arg2, arg3]),
+      worker(EventStreamer, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

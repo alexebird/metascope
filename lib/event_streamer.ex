@@ -7,7 +7,7 @@ defmodule EventStreamer do
   @events_url "https://api.github.com/users/grh-drone/events/orgs/ConsultingMD"
 
   def start_link do
-    GenServer.start_link(__MODULE__, %{last_etag: nil, gevents: []})
+    GenServer.start_link(__MODULE__, %{last_etag: nil, gevents: []}, name: __MODULE__)
   end
 
   # Public API
