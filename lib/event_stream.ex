@@ -1,13 +1,14 @@
 require IEx;
 
-defmodule EventStreamer do
+defmodule EventStream do
   use GenServer
 
-  @auth [{"Authorization", "token #{System.get_env("GH_READ_TOKEN")}"}]
-  @events_url "https://api.github.com/users/grh-drone/events/orgs/ConsultingMD"
+  @auth [{"Authorization", "token #{System.get_env("GITHUB_TOKEN")}"}]
+  @events_url "https://api.github.com/users/alexebird/events/orgs/birdart"
+  @default_state %{last_etag: nil, gevents: []}
 
   def start_link do
-    GenServer.start_link(__MODULE__, %{last_etag: nil, gevents: []}, name: __MODULE__)
+    GenServer.start_link(__MODULE__, @default_state, name: __MODULE__)
   end
 
   # Public API
@@ -27,10 +28,7 @@ defmodule EventStreamer do
   # GenServer callbacks
 
   def handle_cast(:poll, state) do
-    resp = HTTPoison.get!(@events_url, headers(state[:last_etag]))
-    state = Map.put(state, :last_etag, etag(resp))
-    state = Map.update(state, :gevents, [], &(&1 ++ body(resp)))
-    {:noreply, state}
+    {:noreply, get_events(state)}
   end
 
   def handle_call(:last_etag, _from, state) do
@@ -40,6 +38,15 @@ defmodule EventStreamer do
   def handle_call(:last_gevent, _from, state) do
     last = state[:gevents] |> List.last
     {:reply, last, state}
+  end
+
+  # public parts
+
+  def get_events(state \\ @default_state) do
+    resp = HTTPoison.get!(@events_url, headers(state[:last_etag]))
+    state
+      |> Map.put(:last_etag, etag(resp))
+      |> Map.update(:gevents, [], &(&1 ++ body(resp)))
   end
 
   # private parts

@@ -11,6 +11,10 @@ CREATE ROLE metascope WITH LOGIN;
 CREATE DATABASE metascope_dev WITH OWNER metascope;
 ```
 
+### Github Access
+
+export `GITHUB_TOKEN` to a user's personal access token with Repo ("Full control of private repositories") checked.
+
 ## Development
 ```
 # server + console
