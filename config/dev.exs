@@ -37,7 +37,6 @@ config :phoenix, :stacktrace_depth, 20
 config :metascope, Metascope.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "metascope",
-  password: "foobar",
   database: "metascope_dev",
   hostname: "localhost",
   pool_size: 10
