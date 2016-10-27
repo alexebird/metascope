@@ -19,7 +19,7 @@ defmodule Metascope.Mixfile do
   def application do
     [mod: {Metascope, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :httpoison]]
+                    :phoenix_ecto, :postgrex, :httpoison, :tentacat]]
   end
 
   # Specifies which paths to compile per environment.
@@ -39,7 +39,8 @@ defmodule Metascope.Mixfile do
      {:phoenix_slime, "~> 0.8.0"},
      {:gettext, "~> 0.11"},
      {:httpoison, "~> 0.9"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:tentacat, "~> 0.5"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

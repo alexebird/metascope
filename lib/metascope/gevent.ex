@@ -27,7 +27,7 @@
 #     "id": "12345"
 #   }
 # ]
-defmodule Gevent do
+defmodule Metascope.Gevent do
   def type(gevent) do
     Kernel.get_in(gevent, ["type"])
   end

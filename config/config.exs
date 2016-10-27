@@ -29,3 +29,6 @@ import_config "#{Mix.env}.exs"
 config :phoenix, :template_engines,
   slim: PhoenixSlime.Engine,
   slime: PhoenixSlime.Engine
+
+config :metascope,
+  github_token: System.get_env("GITHUB_TOKEN")

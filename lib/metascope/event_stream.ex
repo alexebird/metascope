@@ -1,9 +1,9 @@
-require IEx;
+#require IEx;
 
-defmodule EventStream do
+defmodule Metascope.EventStream do
   use GenServer
 
-  @auth [{"Authorization", "token #{System.get_env("GITHUB_TOKEN")}"}]
+  @auth [{"Authorization", "token #{Application.get_env(:metascope, :github_token)}"}]
   @events_url "https://api.github.com/users/alexebird/events/orgs/birdart"
   @default_state %{last_etag: nil, gevents: []}
 
