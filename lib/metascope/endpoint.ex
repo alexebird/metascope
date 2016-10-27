@@ -9,7 +9,7 @@ defmodule Metascope.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/", from: :metascope, gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt flare.json)
+    only: ~w(css fonts images js favicon.ico robots.txt flare.json flare2.json)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
