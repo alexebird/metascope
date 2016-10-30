@@ -13,30 +13,61 @@ body, #app, #react-root {
 }
 
 body {
-  background-color: green;
+  background-color: #333;
 }
 
 #app {
-  background-color: cyan;
-}
-
-circle {
-  fill: rgb(31, 119, 180);
-  fill-opacity: .25;
-  stroke: rgb(31, 119, 180);
-  stroke-width: 1px;
-}
-
-.leaf circle {
-  fill: #ff7f0e;
-  fill-opacity: 1;
-}
-
-text {
-  font: 10px sans-serif;
-  text-anchor: middle;
+  background-color: #333;
 }
 
 #svgland {
-  background: #333;
+  background-color: #333;
+}
+
+//circle {
+  //fill: rgb(31, 119, 180);
+  //fill-opacity: .25;
+  //stroke: rgb(31, 119, 180);
+  //stroke-width: 1px;
+//}
+
+//.leaf circle {
+  //fill: #ff7f0e;
+  //fill-opacity: 1;
+//}
+
+//text {
+  //font: 10px sans-serif;
+  //text-anchor: middle;
+//}
+
+//#svgland {
+  //background: #333;
+//}
+
+
+// from zoomable one
+.node {
+  cursor: pointer;
+}
+
+.node:hover {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.node--leaf {
+  fill: white;
+}
+
+.label {
+  font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-anchor: middle;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+}
+
+.label,
+.node--root,
+.node--leaf {
+  pointer-events: none;
 }
